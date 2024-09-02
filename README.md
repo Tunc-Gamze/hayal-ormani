@@ -32,7 +32,7 @@ Hayal Ormanı, fikirlerinizi ve hayallerinizi paylaşabileceğiniz, destek bulab
 
    ```bash
    git clone https://github.com/Tunc-Gamze/hayal-ormani.git
-   cd HayalOrmani
+   cd hayal-ormani
 2. **Sanal Ortam Oluşturun**
 
    ```bash
