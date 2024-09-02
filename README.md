@@ -31,7 +31,7 @@ Hayal Ormanı, fikirlerinizi ve hayallerinizi paylaşabileceğiniz, destek bulab
 1. **Depoyu Klonlayın**
 
    ```bash
-   git clone https://github.com/Tunc-Gamze/HayalOrmani.git
+   git clone https://github.com/Tunc-Gamze/hayal-ormani.git
    cd HayalOrmani
 2. **Sanal Ortam Oluşturun**
 
