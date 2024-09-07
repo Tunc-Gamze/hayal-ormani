@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Yeni Bir Fikir Paylaş </h2>
+    <form method="POST" action="{{ url_for('main.submit') }}">
+        {{ form.hidden_tag() }}
+        <div>
+            {{ form.title.label }}<br>
+            {{ form.title(size=64) }}<br>
+        </div>
+        <div>
+            {{ form.content.label }}<br>
+            {{ form.content(rows=10) }}<br>
+        </div>
+        <div>
+            {{ form.submit(class="btn btn-primary") }}
+        </div>
+    </form>
+{% endblock %}

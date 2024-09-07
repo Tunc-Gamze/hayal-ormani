@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Giriş Yap</h2>
+    <form method="POST" action="{{ url_for('main.login') }}">
+        {{ form.hidden_tag() }}
+        <div>
+            {{ form.email.label }}<br>
+            {{ form.email(size=32) }}<br>
+            {% if form.email.errors %}
+                <span class="error">{{ form.email.errors[0] }}</span>
+            {% endif %}
+        </div>
+        <div>
+            {{ form.password.label }}<br>
+            {{ form.password(size=32) }}<br>
+            {% if form.password.errors %}
+                <span class="error">{{ form.password.errors[0] }}</span>
+            {% endif %}
+        </div>
+        <div>
+            {{ form.submit(class="btn btn-primary") }}
+        </div>
+    </form>
+
+    <!-- Kayıt Sayfasına Yönlendiren Buton -->
+    <div>
+        <p>Henüz bir hesabınız yok mu?</p>
+        <a href="{{ url_for('main.register') }}" class="btn btn-secondary">Kayıt Ol</a>
+    </div>
+{% endblock %}

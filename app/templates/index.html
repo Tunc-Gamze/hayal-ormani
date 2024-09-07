@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Gönderiler</h2>
+
+    {% for post in posts %}
+        <div class="post">
+            <h2>{{ post.title }}</h2>
+            <p>{{ post.content }}</p>
+            
+            <h3>Yorumlar:</h3>
+            <ul>
+                {% for comment in post.comments %}
+                    <li>{{ comment.content }}</li>
+                {% endfor %}
+            </ul>
+
+            <h4>Yorum Yap</h4>
+            <form method="POST" action="{{ url_for('main.add_comment', post_id=post.id) }}">
+                {{ comment_form.hidden_tag() }}
+                {{ comment_form.post_id(value=post.id) }}
+                <div>
+                    {{ comment_form.content.label }}<br>
+                    {{ comment_form.content(rows=3) }}<br>
+                </div>
+                <div>
+                    {{ comment_form.submit(class="btn btn-primary") }}
+                </div>
+            </form>
+
+            <h4>Reaksiyon Ver</h4>
+            <form method="POST" action="{{ url_for('main.add_reaction', post_id=post.id) }}">
+                {{ reaction_form.hidden_tag() }}
+                {{ reaction_form.post_id(value=post.id) }}
+                <div>
+                    {{ reaction_form.reaction_type.label }}<br>
+                    {{ reaction_form.reaction_type() }}<br>
+                </div>
+                <div>
+                    {{ reaction_form.submit(class="btn btn-primary") }}
+                </div>
+            </form>
+        </div>
+        <hr>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ post.title }}</title>
+</head>
+<body>
+    <h1>{{ post.title }}</h1>
+    <p>{{ post.content }}</p>
+
+    <h2>Reactions</h2>
+    <ul>
+        {% for reaction in reactions %}
+        <li>{{ reaction.type }}</li>
+        {% endfor %}
+    </ul>
+
+    <h3>Add Reaction</h3>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        {{ form.reaction_type.label }} {{ form.reaction_type() }}
+        {{ form.submit() }}
+    </form>
+
+    <a href="{{ url_for('main.index') }}">Back to Home</a>
+</body>
+</html>
